@@ -4,5 +4,24 @@
     "express": "^4.18.2",
     "mysql2": "^3.0.1",
     "sequelize": "^6.28.0"
-  }
+  },
+  "name": "express_sale_final_back",
+  "description": "Partie Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucaramiandrasoa/express_sale_final_back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucaramiandrasoa/express_sale_final_back/issues"
+  },
+  "homepage": "https://github.com/lucaramiandrasoa/express_sale_final_back#readme"
 }
