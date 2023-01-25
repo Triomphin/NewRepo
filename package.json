@@ -9,10 +9,9 @@
   "description": "Partie Backend",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" :"node server.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -26,3 +25,4 @@
   },
   "homepage": "https://github.com/lucaramiandrasoa/express_sale_final_back#readme"
 }
+ 
