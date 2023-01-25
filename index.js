@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/',(req,res)=>{
-    res.send("Bienvenu")
-});
+const articlesRoute = require('./routes/articles');
+
+app.use("articles",articlesRoute);
 
 module.exports = app

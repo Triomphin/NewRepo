@@ -1,8 +1,8 @@
 function index(req,res){
     const articles = "Articles list";
-    res.send(posts);
+    res.send(articles);
 }
 
-module,exports={
+module.exports={
     index : index
 }
