@@ -8,4 +8,4 @@ app.use(bodyParser.json());
 
 app.use("/articles",articlesRoute);
 
-module.exports = app
+module.exports = app 
