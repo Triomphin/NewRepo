@@ -1,11 +1,39 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
-const articlesRoute = require('./routes/articles');
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
 
-app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
-app.use("/articles",articlesRoute);
 
-module.exports = app 
+app.use(express.json());
+
+
+app.use(express.urlencoded({ extended: true }));
+
+const db = require("./models");
+
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
+
+  app.get("/", (req, res) => {
+    res.json({ message: "Application de gestion de stock" });
+  });
+
+ require("./routes/article.routes")(app);
+
+ const PORT = process.env.PORT || 8080;
+ app.listen(PORT, () => {
+   console.log(`le serveur tourne sur le port ${PORT}.`);
+ });
+ 
+ 

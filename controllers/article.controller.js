@@ -1,28 +1,29 @@
-const models = require('../models');
+const db = require("../models");
+const Article = db.articles;
+const Op = db.Sequelize.Op;
 
-function save(req,res){
-    const article ={
-        nom : req.body.nom,
-        description : req.body.description,
-        image : req.body.image_url,
-        prix : req.body.prix,
-        stock_global : req.body.stock_global, 
-        quantite : req.body.stock
-    }
-    models.Article.create(article).then(result=>{
-        res.status(201).json({
-            message: "Article enregistré",
-            article:result
+ const create = (req, res) => {
+    
+    const article = {
+      Nom: req.body.nom,
+      Description: req.body.description,
+      Image: req.body.image_url,
+      Prix: req.body.prix,
+      Stock:req.body.stock_global,
+      Qantite:req.body.quantite
+    };
+  
+    // Save Tutorial in the database
+        
+    Article.create(article)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "error"
         });
-    }).catch(error =>{
-        res.status(500).json({
-            message: "erreur",
-            error : error
-        });
-    } )
-}
-
-
-module.exports={
-    save : save
-}
+      });
+  };
+module.exports={create};
